@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Middleware\AdminMiddleware;
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'submit'])->name('login_submit');
+Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
+Route::post('/admin', [AuthController::class, 'submit'])->name('admin.login_submit');
+
+
+
+
+Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
 
@@ -17,7 +22,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/admin/list', function () {
         return view('admin.admin.list');
     })->name('list');
-  
 });
 
 
@@ -25,6 +29,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
