@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
@@ -13,14 +14,14 @@ Route::post('/admin', [AuthController::class, 'submit'])->name('admin.login_subm
 
 Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+   
 
     Route::get('/admin/list', function () {
-        return view('admin.admin.list');
+        $data['header_title'] = 'Admin';
+        return view('admin.admin.list', $data);
     })->name('list');
 });
 
