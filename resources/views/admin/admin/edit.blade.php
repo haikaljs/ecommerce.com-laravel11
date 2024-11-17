@@ -22,18 +22,22 @@
                         <div class="card card-primary">
 
 
-                            <form action="{{ route('admin.store') }}" method="POST">
+                            <form action="{{ route('admin.update', $getRecord->id) }}" method="POST">
                                 {{ csrf_field() }}
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" name="name" value="{{ $getRecord->name }}" required
+                                        <input type="text" name="name" value="{{ old('name', $getRecord->name) }}" required
                                             class="form-control" placeholder="Enter name">
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" name="email" value="{{ $getRecord->email }}" required
+                                        <input type="email" name="email" value="{{old('email', $getRecord->email)  }}" required
                                             class="form-control" placeholder="Enter email">
+                                            <div class="text-danger">
+                                                {{$errors->first('email')}}
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>

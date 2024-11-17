@@ -45,8 +45,8 @@
                                                 <td>{{ $value->email }}</td>
                                                 <td>{{ $value->status == 0 ? 'Active' : 'Inactive' }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.edit', $value->id) }}">Edit</a>
-                                                    <a href="{{ route('admin.delete', $value->id) }}">Delete</a>
+                                                    <a href="{{ route('admin.edit', $value->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                                    <a href="{{ route('admin.delete', $value->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
 
 

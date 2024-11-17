@@ -20,7 +20,7 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'],
     Route::get('/admin/create', [AdminController::class, 'create'])->name('create');
     Route::post('/admin/store', [AdminController::class, 'store'])->name('store');
     Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('edit');
-    Route::get('/admin/update/{id}', [AdminController::class, 'update'])->name('update');
+    Route::put('/admin/update/{id}', [AdminController::class, 'update'])->name('update');
     Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('delete');
     
 
