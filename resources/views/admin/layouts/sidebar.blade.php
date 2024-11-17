@@ -41,15 +41,29 @@
                         </p>
                     </a>
                 </li>
+
+
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}"
-                        class="nav-link @if (Request::segment(2) == 'admin') active @endif">
+                        class="nav-link @if (Request::segment(2) == 'category') active @endif">
                         <i class="fas fa-th-list"></i>
                         <p>
                             Category
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.subcategory.index') }}"
+                        class="nav-link @if (Request::segment(2) == 'subcategory') active @endif">
+                        <i class="fas fa-th-list"></i>
+                        <p>
+                            Sub category
+                        </p>
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a href="{{ route('admin.logout') }}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>          

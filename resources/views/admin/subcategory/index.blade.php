@@ -6,10 +6,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category Lists</h1>
+                        <h1>Sub category lists</h1>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                        <a href="{{ route('admin.subcategory.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                     </div>
 
                 </div>
@@ -31,7 +31,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
+                                            <th>Category name</th>
+                                            <th>Sub category name</th>
                                             <th>Slug</th>
                                             <th>Meta title</th>
                                             <th>Meta descriptions</th>
@@ -46,6 +47,7 @@
                                         @foreach ($getRecord as $value)
                                             <tr>
                                                 <td>{{ $value->id }}</td>
+                                                <td>{{ $value->category_name }}</td>
                                                 <td>{{ $value->name }}</td>
                                                 <td>{{ $value->slug }}</td>
                                                 <td>{{ $value->meta_title }}</td>
@@ -57,28 +59,31 @@
 
 
                                                 <td>
-                                                    <a href="{{ route('admin.category.edit', $value->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                                    <a href="{{ route('admin.category.delete', $value->id) }}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="{{ route('admin.subcategory.edit', $value->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a href="{{ route('admin.subcategory.delete', $value->id) }}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                                                 </td>
 
 
                                             </tr>
                                         @endforeach
 
+                                      
+
+
                                     </tbody>
+                                   
                                 </table>
                             </div>
-                            <div class="mt-3 px-5">
-                                {{ $getRecord->links() }}
-                            </div>
+                            <!-- /.card-body -->
                         </div>
-                    
-                      
+                        
+                        <!-- /.card -->
                     </div>
-                  
+                    <!-- /.col -->
                 </div>
 
         </section>
         <!-- /.content -->
+
     </div>
 @endsection

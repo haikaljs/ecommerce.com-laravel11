@@ -67,7 +67,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('admin.index')->with('success', 'Admin successfully updated');
+        return redirect()->route('admin.index')->with('success', 'Category successfully updated');
     }
 
     public function delete($id){

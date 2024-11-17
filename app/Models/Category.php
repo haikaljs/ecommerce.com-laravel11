@@ -13,7 +13,7 @@ class Category extends Model
                     ->join('users', 'users.id', '=', 'categories.created_by')
                     ->where('categories.is_delete', '=', 0)
                     ->orderBy('categories.id', 'desc')
-                    ->get();
+                    ->paginate(5);
 
     }
 

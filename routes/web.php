@@ -6,6 +6,7 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SubCategoryController;
 
 
 Route::get('/admin', [AuthController::class, 'login'])->name('admin.login');
@@ -34,6 +35,14 @@ Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'],
     Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
     Route::put('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+    // Sub category
+    Route::get('/subcategory/index', [SubCategoryController::class, 'index'])->name('subcategory.index');
+    Route::get('/subcategory/create', [SubCategoryController::class, 'create'])->name('subcategory.create');
+    Route::post('/subcategory/store', [SubCategoryController::class, 'store'])->name('subcategory.store');
+    Route::get('/subcategory/edit/{id}', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
+    Route::put('/subcategory/update/{id}', [SubCategoryController::class, 'update'])->name('subcategory.update');
+    Route::get('/subcategory/delete/{id}', [SubCategoryController::class, 'delete'])->name('subcategory.delete');
     
 
    
