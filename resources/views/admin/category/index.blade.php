@@ -6,10 +6,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Admin Lists</h1>
+                        <h1>Category Lists</h1>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <a href="{{ route('admin.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                     </div>
 
                 </div>
@@ -32,8 +32,13 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Slug</th>
+                                            <th>Meta title</th>
+                                            <th>Meta descriptions</th>
+                                            <th>Meta keywords</th>
+                                            <th>Created by</th>
                                             <th>Status</th>
+                                            <th>Created date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -42,11 +47,18 @@
                                             <tr>
                                                 <td>{{ $value->id }}</td>
                                                 <td>{{ $value->name }}</td>
-                                                <td>{{ $value->email }}</td>
+                                                <td>{{ $value->slug }}</td>
+                                                <td>{{ $value->meta_title }}</td>
+                                                <td>{{ $value->meta_descriptions }}</td>
+                                                <td>{{ $value->meta_keywords }}</td>
+                                                <td>{{ $value->created_by_name }}</td>
                                                 <td>{{ $value->status == 0 ? 'Active' : 'Inactive' }}</td>
+                                                <td>{{date('d-m-y', strtotime($value->created_at))}}</td>
+
+
                                                 <td>
-                                                    <a href="{{ route('admin.edit', $value->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                                    <a href="{{ route('admin.delete', $value->id) }}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="{{ route('admin.category.edit', $value->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a href="{{ route('admin.category.delete', $value->id) }}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                                                 </td>
 
 

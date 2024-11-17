@@ -27,8 +27,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}"
                         class="nav-link @if (Request::segment(2) == 'dashboard') active @endif">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
+                        <i class="fas fa-chart-line"></i>                        <p>
                             Dashboard
                             {{-- <span class="right badge badge-danger">New</span> --}}
                         </p>
@@ -37,16 +36,23 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.index') }}"
                         class="nav-link @if (Request::segment(2) == 'admin') active @endif">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
+                        <i class="fas fa-users-cog"></i>                        <p>
                             Admin
-                            {{-- <span class="right badge badge-danger">New</span> --}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.category.index') }}"
+                        class="nav-link @if (Request::segment(2) == 'admin') active @endif">
+                        <i class="fas fa-th-list"></i>
+                        <p>
+                            Category
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.logout') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-sign-out-alt"></i>          
                         <p>
                             Logout
                         </p>
