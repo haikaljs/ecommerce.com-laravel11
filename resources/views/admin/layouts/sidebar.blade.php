@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.list') }}"
+                    <a href="{{ route('admin.index') }}"
                         class="nav-link @if (Request::segment(2) == 'admin') active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

@@ -45,4 +45,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    static public function getSingle($id){
+        return self::find($id);
+    }
+
+    static public function getAdmin(){
+        return self::select('users.*')
+                ->where('is_admin', '=', 1)
+                ->where('is_delete', '=', 0)
+                ->orderBy('id', 'desc')
+                ->get();
+    }
 }
